@@ -12,21 +12,23 @@ struct ContentView: View {
         
         NavigationView {
             VStack {
-                Image(systemName: "photo")
+                Image("carrr")
+                    .resizable()
                     .frame(maxWidth: .infinity)
-                    .frame(height: 150)
+                    .frame(height: 200)
                 
                 HStack {
                     Text("Great Good Fine OK")
                         .padding(.horizontal)
                     
-//                    Image(systemName: "checkmark.shield.fill")
-//                        .foregroundColor(Color.blue)
+                    Image(systemName: "checkmark.shield.fill")
+                        .foregroundColor(Color.blue)
                     Spacer()
                     
                     Text("Subscribe")
                         .padding(10)
                         .background(Color.blue)
+                        .foregroundColor(Color.white)
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         .padding(.horizontal)
                 }
@@ -34,23 +36,32 @@ struct ContentView: View {
 
 
             
-                HStack {
-                    ScrollView(.horizontal) {
+                
+                ScrollView(.horizontal) {
+                    HStack {
+                        SongCardView()
+                        SongCardView()
+                        SongCardView()
+                        SongCardView()
                         SongCardView()
                         
-                        
                     }
-                    .frame(height: 350)
                 }
+                .frame(maxWidth: .infinity)
                 
                 
-                VStack {
-                    ScrollView {
+                
+                ScrollView {
+                    VStack {
                         TopSongView()
-                        
+                        TopSongView()
+                        TopSongView()
+                        TopSongView()
+                        TopSongView()
+                        TopSongView()
                     }
-                    
                 }
+                
                 
                 
             }
@@ -66,15 +77,15 @@ struct ContentView: View {
 struct SongCardView: View {
     var body: some View {
             VStack {
-                Image(systemName: "photo")
+                Image("carrr")
                     .resizable()
-                    .frame(width: 120, height: 75)
+                    .frame(width: 150, height: 150)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
             
                 HStack {
                     Text("1 Song")
-                        .foregroundColor(Color.red)
+                        .foregroundColor(Color.gray)
                         .padding()
-//                        .font(.system(size: 12))
                     
                     Spacer()
                     
@@ -83,13 +94,13 @@ struct SongCardView: View {
                     
                     Text("2017")
                         .padding()
+                        
                 }
             }
+            .padding()
             .font(.system(size: 12))
-            .frame(width: 200, height: 200, alignment: .center)
-        
-        
-        
+            .frame(width: 200, height: 250, alignment: .center)
+            
         
     }
 }
@@ -112,7 +123,7 @@ struct TopSongView: View {
                 .padding(.trailing)
         }
         .padding()
-        .background(Color.gray)
+        .background(Color.gray.opacity(0.1))
         
     }
 }
