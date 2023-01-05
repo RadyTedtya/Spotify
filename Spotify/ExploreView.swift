@@ -11,14 +11,14 @@ import SwiftUI
 struct ExploreView: View {
     
     var body: some View {
-    
-        NavigationView {
         
+        NavigationView {
+            
             ScrollView {
                 VStack {
                     
                     ZStack {
-                    
+                        
                         Image("image1")
                             .resizable()
                             .frame(height: 200)
@@ -52,7 +52,7 @@ struct ExploreView: View {
                                 Button {
                                     
                                 } label: {
-                                     Text("Listen")
+                                    Text("Listen")
                                         .background(Color.primaryColor)
                                         .frame(width: 20, height: 30)
                                         .foregroundColor(Color.secondaryColor)
@@ -64,9 +64,6 @@ struct ExploreView: View {
                         }
                         
                     }
-                    
-                    
-                    
                     
                     Spacer()
                     
@@ -100,7 +97,22 @@ struct ExploreView: View {
                             .font(.system(size: 28))
                         Spacer()
                     }
+                    
+                    
+                    ScrollView(.horizontal) {
+                        ZStack {
+                            ForEach(0...10, id: \.self) {
+                                index in
+                                OnlySongCardView().stacked(at: index, in: 10)
+                                
+                            }
+                        }
+                        .padding(.leading)
+                    }
+                    
                     Spacer()
+                    
+                    
                 }
             }
             .background(Color.primaryBackground)
@@ -120,3 +132,10 @@ struct Explore_Preview: PreviewProvider {
 }
 
 
+
+extension View {
+    func stacked(at position: Int, in total: Int) -> some View {
+        let offset = Double(total - position)
+        return self.offset(x: offset * 100, y: 0)
+    }
+}

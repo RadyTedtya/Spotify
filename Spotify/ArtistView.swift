@@ -16,7 +16,7 @@ struct ArtistView: View {
         NavigationView {
             
             VStack {
-                Image("carrr")
+                Image("image")
                     .resizable()
                     .frame(maxWidth: .infinity)
                     .frame(height: 200)
@@ -32,14 +32,6 @@ struct ArtistView: View {
                         .foregroundColor(Color.primaryColor)
                     Spacer()
                     
-//                    Text("Subscribe")
-//                        .padding(10)
-//                        .background(Color.primaryColor)
-//                        .frame(height: 30)
-//                        .foregroundColor(Color.secondaryColor)
-//                        .clipShape(RoundedRectangle(cornerRadius: 20))
-//                        .padding(.trailing)
-                    
                     Button {
                         print("Subscribe")
                     } label: {
@@ -51,6 +43,7 @@ struct ArtistView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 20))
                             
                     }
+                    .padding(.trailing)
                     
                     
                     
