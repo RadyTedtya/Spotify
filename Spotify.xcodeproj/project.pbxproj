@@ -14,6 +14,12 @@
 		D301A5212960070600A8DF6F /* SpotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A5202960070600A8DF6F /* SpotifyTests.swift */; };
 		D301A52B2960070600A8DF6F /* SpotifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A52A2960070600A8DF6F /* SpotifyUITests.swift */; };
 		D301A52D2960070600A8DF6F /* SpotifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A52C2960070600A8DF6F /* SpotifyUITestsLaunchTests.swift */; };
+		D301A53A296160E800A8DF6F /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A539296160E800A8DF6F /* ArtistView.swift */; };
+		D301A53C296161CE00A8DF6F /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A53B296161CE00A8DF6F /* ExploreView.swift */; };
+		D301A53E29641DE000A8DF6F /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A53D29641DE000A8DF6F /* PlayerView.swift */; };
+		D301A54229643A3200A8DF6F /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A54129643A3200A8DF6F /* SongDetailView.swift */; };
+		D301A544296540F700A8DF6F /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A543296540F700A8DF6F /* SectionView.swift */; };
+		D301A546296543D600A8DF6F /* ColorAndExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A545296543D600A8DF6F /* ColorAndExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,12 @@
 		D301A5262960070600A8DF6F /* SpotifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D301A52A2960070600A8DF6F /* SpotifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyUITests.swift; sourceTree = "<group>"; };
 		D301A52C2960070600A8DF6F /* SpotifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D301A539296160E800A8DF6F /* ArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
+		D301A53B296161CE00A8DF6F /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		D301A53D29641DE000A8DF6F /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		D301A54129643A3200A8DF6F /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
+		D301A543296540F700A8DF6F /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		D301A545296543D600A8DF6F /* ColorAndExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAndExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +107,13 @@
 			isa = PBXGroup;
 			children = (
 				D301A50F2960070400A8DF6F /* SpotifyApp.swift */,
+				D301A543296540F700A8DF6F /* SectionView.swift */,
 				D301A5112960070400A8DF6F /* ContentView.swift */,
+				D301A54129643A3200A8DF6F /* SongDetailView.swift */,
+				D301A53D29641DE000A8DF6F /* PlayerView.swift */,
+				D301A53B296161CE00A8DF6F /* ExploreView.swift */,
+				D301A539296160E800A8DF6F /* ArtistView.swift */,
+				D301A545296543D600A8DF6F /* ColorAndExtension.swift */,
 				D301A5132960070500A8DF6F /* Assets.xcassets */,
 				D301A5152960070500A8DF6F /* Preview Content */,
 			);
@@ -257,8 +275,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D301A54229643A3200A8DF6F /* SongDetailView.swift in Sources */,
 				D301A5122960070400A8DF6F /* ContentView.swift in Sources */,
 				D301A5102960070400A8DF6F /* SpotifyApp.swift in Sources */,
+				D301A546296543D600A8DF6F /* ColorAndExtension.swift in Sources */,
+				D301A53C296161CE00A8DF6F /* ExploreView.swift in Sources */,
+				D301A544296540F700A8DF6F /* SectionView.swift in Sources */,
+				D301A53E29641DE000A8DF6F /* PlayerView.swift in Sources */,
+				D301A53A296160E800A8DF6F /* ArtistView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
