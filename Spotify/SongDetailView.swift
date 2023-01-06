@@ -7,14 +7,18 @@
 
 import Foundation
 import SwiftUI
+import AVFoundation
 
 struct SongDetailView: View {
     
+    let song: Song
+    @State public var currentTime: Float = 0
+    @State public var isPlay: Bool = false
+    @State var player: AVPlayer = .init(playerItem: nil)
+    
     var body: some View {
-        
-        
+
         VStack {
-            
             ZStack {
                 
                 Image("shadow")
@@ -25,7 +29,7 @@ struct SongDetailView: View {
                 
                 VStack(spacing: 0) {
                     
-                    Text("Song name")
+                    Text(song.songName)
                         .foregroundColor(Color.white)
                         .font(.system(size: 25))
                     
@@ -64,10 +68,14 @@ struct SongDetailView: View {
             }
             Spacer()
             
-            PlayingView()
+            ProgressView(duration: 10, progress: .constant(0))
             Spacer()
             
-            MusicPlayerView()
+            PlayerToolView(isPlay: $isPlay, action: .init(onPlay: {
+                player.play()
+            }, onPause: {
+                player.pause()
+            }))
                 .frame(maxWidth: .infinity)
                 .frame(height: 150)
             
@@ -75,13 +83,14 @@ struct SongDetailView: View {
             
         }
         .background(Color.primaryBackground)
-        
-        
+        .onAppear {
+            player = .init(playerItem: .init(url: song.constructedURL))
+        }
     }
 }
 
 struct SongDetailView_Preview: PreviewProvider {
     static var previews: some View {
-        SongDetailView()
+        SongDetailView(song: Song.DummySong)
     }
 }

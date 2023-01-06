@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import AVFoundation
 
 
 struct ShuffleSectionView: View {
@@ -113,41 +114,85 @@ struct OnlySongCardView: View {
     }
 }
 
-struct MusicPlayerView: View {
+struct PlayerToolAction {
+    let onPlay: () -> ()
+    let onPause: () -> ()
+
+}
+
+struct PlayerToolView: View {
+    
+    @Binding var isPlay: Bool
+    
+    let action: PlayerToolAction
+    
     var body: some View {
         
-        HStack {
-            Image(systemName: "shuffle")
-                .foregroundColor(Color.primaryColor)
-                .font(.system(size: 30))
-                .padding(.horizontal)
-            Image(systemName: "backward.end.fill")
-                .foregroundColor(Color.secondaryColor)
-                .font(.system(size: 30))
-                .padding(.horizontal)
-            Image(systemName: "pause.circle.fill")
-                .foregroundColor(Color.primaryColor)
-                .font(.system(size: 70))
-                .padding(.horizontal)
-            Image(systemName: "forward.end.fill")
-                .foregroundColor(Color.secondaryColor)
-                .font(.system(size: 30))
-                .padding(.horizontal)
-            Image(systemName: "repeat")
-                .foregroundColor(Color.primaryColor)
-                .font(.system(size: 30))
-                .padding(.horizontal)
+        HStack(spacing: 25) {
+            Button (action: {
+                
+            }) {
+                Image(systemName: "shuffle")
+                    .foregroundColor(Color.primaryColor)
+                    .font(.system(size: 30))
+            }
+            
+            Button(action: {
+                
+            }) {
+                Image(systemName: "backward.end.fill")
+                    .foregroundColor(Color.secondaryColor)
+                    .font(.system(size: 30))
+            }
+            
+            Button(action: {
+                isPlay = isPlay ? false : true
+                isPlay ? action.onPlay() : action.onPause()
+                
+            }) {
+                Image(systemName: isPlay ? "pause.circle.fill" : "play.circle.fill")
+                    .foregroundColor(Color.primaryColor)
+                    .font(.system(size: 70))
+            }
+            
+            Button(action: {
+                
+            }) {
+                Image(systemName: "forward.end.fill")
+                    .foregroundColor(Color.secondaryColor)
+                    .font(.system(size: 30))
+            }
+            
+            Button(action: {
+                
+            }) {
+                Image(systemName: "repeat")
+                    .foregroundColor(Color.primaryColor)
+                    .font(.system(size: 30))
+            }
+            
+            
         }
+        .background(Color.black)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, 20)
-        
     }
 }
 
-struct PlayingView: View {
+
+struct ProgressView: View {
+    
+    let duration: Double
+    @Binding var progress: Double
+    
+    var currentTime: Double {
+        0.0
+    }
+    private let _progressWidth: CGFloat = 250
+    
     var body: some View {
         HStack {
-            Text("02:20")
+            Text(String(currentTime))
                 .foregroundColor(Color.gray)
             ZStack(alignment: .leading) {
                 Color.gray
@@ -155,30 +200,35 @@ struct PlayingView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 1.5))
                 
                 LinearGradient(colors: [Color.init(hex: 0x0098FF), Color.init(hex: 0x2EC9A8)] , startPoint: .leading, endPoint: .trailing)
-                    .frame(width: 100, height: 4, alignment: .trailing)
+                    .frame(width: progress * _progressWidth, height: 4, alignment: .trailing)
                     .clipShape(RoundedRectangle(cornerRadius: 2))
                 
                 Circle()
                     .foregroundColor(Color.primaryColor)
                     .frame(width: 8, height: 8)
-                    .offset(x:92)
-                    
+                    .offset(x: (progress * _progressWidth) - 8)
                 
-//                Color.primaryColor
-//                    .frame(width: 100, height: 4, alignment: .trailing)
-//                    .clipShape(RoundedRectangle(cornerRadius: 2))
             }
             
             
             Text("04:30")
                 .foregroundColor(Color.gray)
         }
+        .padding(.horizontal)
+        .frame(maxWidth: .infinity)
         .background(Color.black)
     }
 }
 
 struct PlayingView_Preview: PreviewProvider {
     static var previews: some View {
-        PlayingView()
+        ProgressView(duration: 100, progress: .constant(0.1))
     }
 }
+
+
+//struct MusicPlayerView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        MusicPlayerView()
+//    }
+//}

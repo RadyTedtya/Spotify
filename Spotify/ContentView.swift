@@ -29,7 +29,7 @@ struct ContentView: View {
                         .foregroundColor(Color.primaryBackground)
                 }
             
-            SongDetailView()
+            SongDetailView(song: Song.DummySong)
                 .tabItem {
                     Label("Detail", systemImage: "music.note.list")
                         .foregroundColor(Color.primaryBackground)
