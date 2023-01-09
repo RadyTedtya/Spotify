@@ -11,13 +11,14 @@ import AVFoundation
 
 struct SongDetailView: View {
     
-    let song: Song
-    @State public var currentTime: Float = 0
+    @State public var progress: Double = 0
+    @State public var currentTime: Double = 0
     @State public var isPlay: Bool = false
+    @State public var song: Song = Song.DummySong
+    @State public var songDuration: Double = 0
     @State var player: AVPlayer = .init(playerItem: nil)
-    
     var body: some View {
-
+        
         VStack {
             ZStack {
                 
@@ -68,13 +69,12 @@ struct SongDetailView: View {
             }
             Spacer()
             
-            ProgressView(duration: 10, progress: .constant(0))
+            ProgressView(song: $song, progress: $progress, isPlay: $isPlay, duration: $songDuration)
+            
             Spacer()
             
-            PlayerToolView(isPlay: $isPlay, action: .init(onPlay: {
-                player.play()
-            }, onPause: {
-                player.pause()
+            PlayerToolView(isPlay: $isPlay, action: .init(onPlayPauseClicked: { isPlay in
+                isPlay ? player.play() : player.pause()
             }))
                 .frame(maxWidth: .infinity)
                 .frame(height: 150)
@@ -84,13 +84,23 @@ struct SongDetailView: View {
         }
         .background(Color.primaryBackground)
         .onAppear {
+            
             player = .init(playerItem: .init(url: song.constructedURL))
+            player.addPeriodicTimeObserver(forInterval: CMTime(value: CMTimeValue(1), timescale: 1), queue: DispatchQueue.main) { (progressTime) in
+                print("periodic time: \(CMTimeGetSeconds(progressTime))")
+                guard let duration = player.currentItem?.duration else {
+                    return
+                }
+                songDuration = duration.seconds
+                progress = (progressTime.seconds / duration.seconds)
+            }
         }
     }
+    
 }
-
-struct SongDetailView_Preview: PreviewProvider {
-    static var previews: some View {
-        SongDetailView(song: Song.DummySong)
+    
+    struct SongDetailView_Preview: PreviewProvider {
+        static var previews: some View {
+            SongDetailView(song: Song.DummySong)
+        }
     }
-}

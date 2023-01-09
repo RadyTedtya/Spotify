@@ -1,5 +1,5 @@
 //
-//  ColorAndExtension.swift
+//  Color+Extension.swift
 //  Spotify
 //
 //  Created by Tedtya rady on 4/1/23.

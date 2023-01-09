@@ -16,7 +16,7 @@ struct Song: Identifiable, Decodable {
     }
     
     let songName: String
-    let duration: Float
+    let duration: Double
     let albumnName: String
     let artistName: String
     let genreName: String

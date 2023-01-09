@@ -58,19 +58,6 @@ struct TopSongView: View {
     }
 }
 
-struct PlayerSectionView: View {
-    var body: some View {
-        Text("PlayerSectionView()")
-            .foregroundColor(Color.secondaryColor)
-    }
-}
-
-struct TimingPlayerSectionView: View {
-    var body: some View {
-        Text("TimingPlayerSectionView()")
-            .foregroundColor(Color.secondaryColor)
-    }
-}
 
 struct SongCardView: View {
     var body: some View {
@@ -115,16 +102,14 @@ struct OnlySongCardView: View {
 }
 
 struct PlayerToolAction {
-    let onPlay: () -> ()
-    let onPause: () -> ()
-
+    let onPlayPauseClicked: (_ isPlay: Bool) -> ()
 }
 
 struct PlayerToolView: View {
     
     @Binding var isPlay: Bool
-    
     let action: PlayerToolAction
+    
     
     var body: some View {
         
@@ -147,7 +132,7 @@ struct PlayerToolView: View {
             
             Button(action: {
                 isPlay = isPlay ? false : true
-                isPlay ? action.onPlay() : action.onPause()
+                action.onPlayPauseClicked(isPlay)
                 
             }) {
                 Image(systemName: isPlay ? "pause.circle.fill" : "play.circle.fill")
@@ -182,17 +167,19 @@ struct PlayerToolView: View {
 
 struct ProgressView: View {
     
-    let duration: Double
+    @Binding var song: Song
     @Binding var progress: Double
+    @Binding var isPlay: Bool
+    @Binding var duration: Double
     
     var currentTime: Double {
-        0.0
+        return duration - progress
     }
     private let _progressWidth: CGFloat = 250
     
     var body: some View {
         HStack {
-            Text(String(currentTime))
+            Text(String(progress))
                 .foregroundColor(Color.gray)
             ZStack(alignment: .leading) {
                 Color.gray
@@ -211,7 +198,7 @@ struct ProgressView: View {
             }
             
             
-            Text("04:30")
+            Text(String(duration))
                 .foregroundColor(Color.gray)
         }
         .padding(.horizontal)
@@ -220,11 +207,11 @@ struct ProgressView: View {
     }
 }
 
-struct PlayingView_Preview: PreviewProvider {
-    static var previews: some View {
-        ProgressView(duration: 100, progress: .constant(0.1))
-    }
-}
+//struct ProgressView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        ProgressView(song: .constant(Song.DummySong), progress: .constant(0.1), isPlay: .constant(false))
+//    }
+//}
 
 
 //struct MusicPlayerView_Preview: PreviewProvider {

@@ -19,7 +19,7 @@
 		D301A53E29641DE000A8DF6F /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A53D29641DE000A8DF6F /* PlayerView.swift */; };
 		D301A54229643A3200A8DF6F /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A54129643A3200A8DF6F /* SongDetailView.swift */; };
 		D301A544296540F700A8DF6F /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A543296540F700A8DF6F /* SectionView.swift */; };
-		D301A546296543D600A8DF6F /* ColorAndExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A545296543D600A8DF6F /* ColorAndExtension.swift */; };
+		D301A546296543D600A8DF6F /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A545296543D600A8DF6F /* Color+Extension.swift */; };
 		D301A5482967DC6500A8DF6F /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301A5472967DC6500A8DF6F /* Song.swift */; };
 		D301A54A2967DF6D00A8DF6F /* love_yourself.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D301A5492967DF6D00A8DF6F /* love_yourself.mp3 */; };
 		D301A54C2967DF7F00A8DF6F /* love_yourself.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D301A54B2967DF7F00A8DF6F /* love_yourself.mp3 */; };
@@ -59,7 +59,7 @@
 		D301A53D29641DE000A8DF6F /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		D301A54129643A3200A8DF6F /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
 		D301A543296540F700A8DF6F /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
-		D301A545296543D600A8DF6F /* ColorAndExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAndExtension.swift; sourceTree = "<group>"; };
+		D301A545296543D600A8DF6F /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		D301A5472967DC6500A8DF6F /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		D301A5492967DF6D00A8DF6F /* love_yourself.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = love_yourself.mp3; sourceTree = "<group>"; };
 		D301A54B2967DF7F00A8DF6F /* love_yourself.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = love_yourself.mp3; sourceTree = "<group>"; };
@@ -113,16 +113,11 @@
 		D301A50E2960070400A8DF6F /* Spotify */ = {
 			isa = PBXGroup;
 			children = (
+				D301A5502968178600A8DF6F /* Common */,
+				D301A54F2968177300A8DF6F /* Views */,
+				D301A54E2968176B00A8DF6F /* Data */,
 				D301A54B2967DF7F00A8DF6F /* love_yourself.mp3 */,
-				D301A5472967DC6500A8DF6F /* Song.swift */,
 				D301A50F2960070400A8DF6F /* SpotifyApp.swift */,
-				D301A543296540F700A8DF6F /* SectionView.swift */,
-				D301A5112960070400A8DF6F /* ContentView.swift */,
-				D301A54129643A3200A8DF6F /* SongDetailView.swift */,
-				D301A53D29641DE000A8DF6F /* PlayerView.swift */,
-				D301A53B296161CE00A8DF6F /* ExploreView.swift */,
-				D301A539296160E800A8DF6F /* ArtistView.swift */,
-				D301A545296543D600A8DF6F /* ColorAndExtension.swift */,
 				D301A5132960070500A8DF6F /* Assets.xcassets */,
 				D301A5152960070500A8DF6F /* Preview Content */,
 			);
@@ -153,6 +148,35 @@
 				D301A52C2960070600A8DF6F /* SpotifyUITestsLaunchTests.swift */,
 			);
 			path = SpotifyUITests;
+			sourceTree = "<group>";
+		};
+		D301A54E2968176B00A8DF6F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D301A5472967DC6500A8DF6F /* Song.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		D301A54F2968177300A8DF6F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D301A543296540F700A8DF6F /* SectionView.swift */,
+				D301A5112960070400A8DF6F /* ContentView.swift */,
+				D301A54129643A3200A8DF6F /* SongDetailView.swift */,
+				D301A53D29641DE000A8DF6F /* PlayerView.swift */,
+				D301A53B296161CE00A8DF6F /* ExploreView.swift */,
+				D301A539296160E800A8DF6F /* ArtistView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D301A5502968178600A8DF6F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D301A545296543D600A8DF6F /* Color+Extension.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,7 +316,7 @@
 				D301A54229643A3200A8DF6F /* SongDetailView.swift in Sources */,
 				D301A5122960070400A8DF6F /* ContentView.swift in Sources */,
 				D301A5102960070400A8DF6F /* SpotifyApp.swift in Sources */,
-				D301A546296543D600A8DF6F /* ColorAndExtension.swift in Sources */,
+				D301A546296543D600A8DF6F /* Color+Extension.swift in Sources */,
 				D301A53C296161CE00A8DF6F /* ExploreView.swift in Sources */,
 				D301A544296540F700A8DF6F /* SectionView.swift in Sources */,
 				D301A53E29641DE000A8DF6F /* PlayerView.swift in Sources */,
