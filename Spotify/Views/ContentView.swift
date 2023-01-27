@@ -34,21 +34,13 @@ struct ContentView: View {
                     Label("Detail", systemImage: "music.note.list")
                         .foregroundColor(Color.primaryBackground)
                 }
-            
-            
         }
-        .background(Color.primaryBackground)
+        .onAppear {
+            UITabBar.appearance().barTintColor = UIColor(Color.primaryBackground)
+        }
         .accentColor(Color.primaryColor)
-//        .toolbarBackground(.orange, for: .navigationBar, .tabBar)
     }
     
 }
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//
-//}
 
 
