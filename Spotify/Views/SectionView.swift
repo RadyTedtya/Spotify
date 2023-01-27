@@ -178,8 +178,7 @@ struct ProgressView: View {
     
     var body: some View {
         HStack {
-//            Text(String(progress))
-            
+
             Text("\(progress, specifier: "%.2f")")
                 .foregroundColor(Color.gray)
                 .padding(.horizontal)
@@ -198,9 +197,6 @@ struct ProgressView: View {
                     .offset(x: (progress * _progressWidth) - 8)
                 
             }
-            
-//            Text(String(duration))
-//                .foregroundColor(Color.gray)
             
             Text("\(duration, specifier: "%.2f")")
                 .foregroundColor(Color.gray)
