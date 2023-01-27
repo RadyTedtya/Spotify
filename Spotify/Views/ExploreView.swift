@@ -71,30 +71,35 @@ struct ExploreView: View {
                         Text("Explorer")
                             .foregroundColor(Color.white)
                             .font(.system(size: 28))
-                            .padding(.trailing)
+                            .padding(.leading)
                         Spacer()
                     }
                     
                     ScrollView(.horizontal) {
                         HStack {
-                            SongCardView()
-                            SongCardView()
-                            SongCardView()
-                            SongCardView()
+                            ForEach(1..<10){_ in
+                                SongCardView()
+                            }
                         }
                     }
                     
                     HStack {
                         Spacer()
-                        Text("Explorer")
-                            .foregroundColor(Color.cyan)
-                            .font(.system(size: 15))
+                        Button {
+                            
+                        } label: {
+                            Text("Explorer")
+                                .foregroundColor(Color.cyan)
+                                .font(.system(size: 15))
+                                .padding(.trailing)
+                        }
                     }
                     
                     HStack {
                         Text("Top Chart")
                             .foregroundColor(Color.white)
                             .font(.system(size: 28))
+                            .padding(.leading)
                         Spacer()
                     }
                     
@@ -104,14 +109,13 @@ struct ExploreView: View {
                             ForEach(0...10, id: \.self) {
                                 index in
                                 OnlySongCardView().stacked(at: index, in: 10)
-                                
+
                             }
                         }
                         .padding(.leading)
                     }
                     
                     Spacer()
-                    
                     
                 }
             }

@@ -19,7 +19,7 @@ struct SongDetailView: View {
     @State var player: AVPlayer = .init(playerItem: nil)
     var body: some View {
         
-        VStack {
+        VStack(alignment: .center) {
             ZStack {
                 
                 Image("shadow")
@@ -27,14 +27,10 @@ struct SongDetailView: View {
                     .frame(width: 350, height: 350)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                 
-                
                 VStack(spacing: 0) {
-                    
                     Text(song.songName)
                         .foregroundColor(Color.white)
                         .font(.system(size: 25))
-                    
-                    
                     
                     HStack(spacing: 0) {
                         
@@ -71,8 +67,6 @@ struct SongDetailView: View {
             
             ProgressView(song: $song, progress: $progress, isPlay: $isPlay, duration: $songDuration)
             
-            Spacer()
-            
             PlayerToolView(isPlay: $isPlay, action: .init(onPlayPauseClicked: { isPlay in
                 isPlay ? player.play() : player.pause()
             }))
@@ -84,7 +78,6 @@ struct SongDetailView: View {
         }
         .background(Color.primaryBackground)
         .onAppear {
-            
             player = .init(playerItem: .init(url: song.constructedURL))
             player.addPeriodicTimeObserver(forInterval: CMTime(value: CMTimeValue(1), timescale: 1), queue: DispatchQueue.main) { (progressTime) in
                 print("periodic time: \(CMTimeGetSeconds(progressTime))")

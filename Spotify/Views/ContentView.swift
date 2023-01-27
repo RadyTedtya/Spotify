@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        TabView {
+        TabView() {
             ExploreView()
                 .tabItem {
                     Label("Explore", systemImage: "globe")
@@ -35,21 +35,20 @@ struct ContentView: View {
                         .foregroundColor(Color.primaryBackground)
                 }
             
-
+            
         }
+        .background(Color.primaryBackground)
         .accentColor(Color.primaryColor)
-        .onAppear {
-            UITabBar.appearance().backgroundColor = UIColor(Color.primaryBackground)
-        }
+//        .toolbarBackground(.orange, for: .navigationBar, .tabBar)
     }
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//
+//}
 
 

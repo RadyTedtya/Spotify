@@ -110,7 +110,6 @@ struct PlayerToolView: View {
     @Binding var isPlay: Bool
     let action: PlayerToolAction
     
-    
     var body: some View {
         
         HStack(spacing: 25) {
@@ -158,7 +157,6 @@ struct PlayerToolView: View {
             
             
         }
-        .background(Color.black)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, 20)
     }
@@ -169,6 +167,7 @@ struct ProgressView: View {
     
     @Binding var song: Song
     @Binding var progress: Double
+//    @Binding var progress: Double
     @Binding var isPlay: Bool
     @Binding var duration: Double
     
@@ -179,8 +178,11 @@ struct ProgressView: View {
     
     var body: some View {
         HStack {
-            Text(String(progress))
+//            Text(String(progress))
+            
+            Text("\(progress, specifier: "%.2f")")
                 .foregroundColor(Color.gray)
+                .padding(.horizontal)
             ZStack(alignment: .leading) {
                 Color.gray
                     .frame(width: 200, height: 3)
@@ -197,25 +199,14 @@ struct ProgressView: View {
                 
             }
             
+//            Text(String(duration))
+//                .foregroundColor(Color.gray)
             
-            Text(String(duration))
+            Text("\(duration, specifier: "%.2f")")
                 .foregroundColor(Color.gray)
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity)
-        .background(Color.black)
     }
 }
 
-//struct ProgressView_Preview: PreviewProvider {
-//    static var previews: some View {
-//        ProgressView(song: .constant(Song.DummySong), progress: .constant(0.1), isPlay: .constant(false))
-//    }
-//}
-
-
-//struct MusicPlayerView_Preview: PreviewProvider {
-//    static var previews: some View {
-//        MusicPlayerView()
-//    }
-//}
