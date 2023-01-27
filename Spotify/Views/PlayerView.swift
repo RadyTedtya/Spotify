@@ -20,7 +20,7 @@ struct PlayerView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(height: 244.17)
-                
+                        
                         VStack {
                             Button {
                             } label: {

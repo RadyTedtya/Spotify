@@ -35,11 +35,7 @@ struct ContentView: View {
                         .foregroundColor(Color.primaryBackground)
                 }
             
-//            TrackListView()
-//                .tabItem {
-//                    Label("Track", systemImage: "person.crop.circle.fill")
-//                        .foregroundColor(Color.primaryBackground)
-//                }
+
         }
         .accentColor(Color.primaryColor)
         .onAppear {

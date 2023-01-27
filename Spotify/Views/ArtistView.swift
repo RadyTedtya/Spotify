@@ -41,11 +41,9 @@ struct ArtistView: View {
                             .frame(height: 30)
                             .foregroundColor(Color.secondaryColor)
                             .clipShape(RoundedRectangle(cornerRadius: 20))
-                            
+                        
                     }
                     .padding(.trailing)
-                    
-                    
                     
                 }
                 .frame(maxWidth: .infinity)
@@ -108,12 +106,9 @@ struct ArtistView: View {
             .navigationBarItems(trailing:
                                     Image(systemName: "list.bullet")
                                     .foregroundColor(Color.secondaryColor)
-                                
             )
         }
     }
-    
-    
 }
 
 

@@ -98,9 +98,9 @@ struct SongDetailView: View {
     }
     
 }
-    
-    struct SongDetailView_Preview: PreviewProvider {
-        static var previews: some View {
-            SongDetailView(song: Song.DummySong)
-        }
+
+struct SongDetailView_Preview: PreviewProvider {
+    static var previews: some View {
+        SongDetailView(song: Song.DummySong)
     }
+}
